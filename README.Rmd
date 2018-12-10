@@ -13,6 +13,11 @@ knitr::opts_chunk$set(
 )
 ```
 
+```{r, include = FALSE}
+library(holidayplanneR)
+```
+
+
 # holidayplanneR
 
 The goal of holidayplanneR is to provide some functions that can allow users to gain useful information and/or more structured information about holidays.
