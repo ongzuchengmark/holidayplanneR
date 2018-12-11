@@ -7,13 +7,13 @@ Description: Allows one to find out more about the holidays taking place in a sp
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports: 
-    stringr,
-    dplyr,
-    httr
 RoxygenNote: 6.1.1
 Suggests: 
     knitr,
     rmarkdown
 VignetteBuilder: knitr
+Imports: 
+    dplyr,
+    stringr,
+    httr
 Depends: R (>= 2.10)
