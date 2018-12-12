@@ -12,38 +12,56 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
+
+```{r, include = FALSE}
+library(holidayplanneR)
+```
+
+
 # holidayplanneR
 
-The goal of holidayplanneR is to ...
+The goal of holidayplanneR is to provide some functions that can allow users to gain useful information and/or more structured information about holidays.
 
-## Installation
+## Details and Recommendation
 
-You can install the released version of holidayplanneR from [CRAN](https://CRAN.R-project.org) with:
+The function requires countries to be specified in the form of ISO 3166 country code and the country has to be within the 125 selected countries that are supported by the CalendarIndex API. The list of the 125 countries and their respective ISO 3166 country code be found in the countrycodes file in the data folder of this R package.
 
-``` r
-install.packages("holidayplanneR")
-```
+Users can sign up for their free CalendarIndex API key from this url: https://www.calendarindex.com/signup?plan=free
+
+The CalendarIndex API key is required for all three functions in this holidayplanneR package.
+
+It would be recommended, but not necessary, for user to store his/her CalendarIndex API in the .Renviron file as CALENDARINDEX_API_KEY.
+
+
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to use the function isitholiday:
 
 ```{r example}
-## basic example code
+isitholiday("2018-12-31", "US", Sys.getenv("CALENDARINDEX_API_KEY"))
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+This is a basic example which shows you how to use the function holidaylist for one specific country:
 
-```{r cars}
-summary(cars)
+```{r}
+holidaylist("US", "2018", Sys.getenv("CALENDARINDEX_API_KEY"))
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
+This is a basic example which shows you how to use the function holidaylist with a list of (more than one) countries:
 
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
+```{r}
+holidaylist(c("US", "AD"), "2016", api_key = Sys.getenv("CALENDARINDEX_API_KEY"))
 ```
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
+This is a basic example which shows you how to use the function longholidays for one specific country:
+
+```{r}
+longholidays(c("US"), "2018", api_key = Sys.getenv("CALENDARINDEX_API_KEY"))
+```
+
+This is a basic example which shows you how to use the function longholidays with a list of (more than one) countries:
+
+```{r}
+longholidays(c("US", "AD"), "2016", api_key = Sys.getenv("CALENDARINDEX_API_KEY"))
+```
