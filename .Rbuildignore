@@ -1,5 +1,3 @@
-^Meta$
-^doc$
 ^README\.Rmd$
 ^data-raw$
 ^.*\.Rproj$
